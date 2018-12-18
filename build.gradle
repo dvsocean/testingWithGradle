@@ -23,6 +23,12 @@ repositories {
 	mavenCentral()
 }
 
+/*
+* Gradle and cucumber don't play well so these
+* two commands need to be extended in the test
+* task. This basically instructs gradle to log
+ * all cucumber actions to the console enabling
+ * you to see the auto generated tests and so forth*/
 test {
 	testLogging.showStandardStreams = true
 	systemProperties getSystemProperties()
