@@ -3,6 +3,7 @@ Feature: Create and find node thru controller
     Given I create a node by the name of "Charlie"
     But I already have a node by the name of "JohnnyFive"
     When I should receive the correct data object
+    And a node by the name of "JohnnyFive" already exists
     Then I should see a list containing
 
 

@@ -1,10 +1,12 @@
 package com.testingWithGradle.testingWithGradle.controllerMockMvc;
 
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.testingWithGradle.testingWithGradle.applicationImpl.ZportStation;
+import com.testingWithGradle.testingWithGradle.nodes.Nodes;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -53,12 +55,19 @@ public class NodeControllerSearchTests {
 
   @When("^I should receive the correct data object$")
   public void i_should_receive_the_correct_data_object() throws Throwable {
-    System.out.println("IT WORKS");
+    assertEquals(1, station.getNodesGarage().size());
+  }
+
+  @When("^a node by the name of \"([^\"]*)\" already exists$")
+  public void a_node_by_the_name_of_already_exists(String arg1) throws Throwable {
+    Nodes node = station.retrieveByMotherboardName(arg1);
+    assertEquals(arg1, node.getMotherboard().getNodeName());
+    System.out.println("Node Exists by name --> " + node.getMotherboard().getNodeName());
   }
 
   @Test
   @Then("^I should see a list containing$")
   public void i_should_see_a_list_containing() throws Throwable {
-    System.out.println("IT WORKS");
+
   }
 }
