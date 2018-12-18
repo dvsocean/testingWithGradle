@@ -24,14 +24,17 @@ repositories {
 }
 
 /*
-* Gradle and cucumber don't play well so these
-* two commands need to be extended in the test
-* task. This basically instructs gradle to log
- * all cucumber actions to the console enabling
- * you to see the auto generated tests and so forth*/
+* Gradle and cucumber don't play well together
+* so these two commands need to be extended in
+* the "test" task. The first command instructs
+* gradle to log all cucumber test actions to the
+* console. The second command outputs extra system
+* info. Unless you have to debug its better to
+* excluded the second command cause it clutters
+* up the important test output.*/
 test {
 	testLogging.showStandardStreams = true
-	systemProperties getSystemProperties()
+	//systemProperties getSystemProperties()
 }
 
 dependencies {
@@ -53,7 +56,7 @@ dependencies {
 	//TRANSACTION ERROR, ONLY GETS THROWN WHEN USING GRADLE AND THIS DEP FIXES IT
 	compile group: 'org.springframework', name: 'spring-tx', version: '5.1.3.RELEASE'
 
-	//FOR MOCKMVC --> NOT SURE IF I NEED THIS
+	//MOCKMVC --> NOT SURE IF I NEED THIS --> HELPFUL DURING SETUP BUT MAY NOT BE NEEDED ANYMORE
 	//testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.3.RELEASE'
 }
 
