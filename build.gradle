@@ -46,6 +46,7 @@ dependencies {
 	testCompile 'info.cukes:cucumber-java:1.2.4'
 	testCompile 'info.cukes:cucumber-junit:1.2.4'
 	testCompile 'junit:junit:4.12'
+	testCompile "info.cukes:cucumber-spring:1.2.4"
 
 	//TRANSACTION ERROR, ONLY GETS THROWN WHEN USING GRADLE
 	// https://mvnrepository.com/artifact/org.springframework/spring-tx
