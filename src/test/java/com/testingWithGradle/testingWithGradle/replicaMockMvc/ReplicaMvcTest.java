@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,6 +33,8 @@ public class ReplicaMvcTest {
   @Autowired
   private MockMvc mockMvc;
 
+  private String nodeName;
+
   @Test
   @Given("^I hit the correct endpoint$")
   public void i_hit_the_correct_endpoint() throws Throwable {
@@ -40,6 +43,7 @@ public class ReplicaMvcTest {
 
   @When("^I provide \"([^\"]*)\" as the node name$")
   public void i_provide_as_the_node_name(String arg1) throws Throwable {
+    nodeName = arg1;
     mockMvc.perform(get("/createNode/" + arg1))
         .andExpect(status().isOk())
         .andExpect(jsonPath("motherboard.nodeName").value(arg1));
@@ -47,7 +51,7 @@ public class ReplicaMvcTest {
 
   @When("^I make sure station size is not empty$")
   public void i_make_sure_station_size_is_not_empty() throws Throwable {
-    mockMvc.perform(get("/createNode/Harrelson"))
+    mockMvc.perform(get("/createNode/" + nodeName))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$").isNotEmpty());
   }
@@ -58,18 +62,16 @@ public class ReplicaMvcTest {
         .andExpect(jsonPath("motherboard.nodeName").value(arg1));
   }
 
-  @Then("^node garage should not be empty$")
-  public void node_garage_should_not_be_empty() throws Throwable {
-   mockMvc.perform(get("/showAll")).andExpect(status().isOk());
-   /*
-   NEED TO FINISH ASSERTING ARRAY SIZE
-   *
-   *
-   *
-   *
-   * */
-//    System.out.println("NODE GARAGE --> " + res.getContentAsString());
+  @Then("^the created node should exist in the station$")
+  public void the_created_node_should_exist_in_the_station() throws Throwable {
+    MockHttpServletResponse res = mockMvc.perform(get("/findNode/" + nodeName))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("motherboard.nodeName").value(nodeName))
+        .andReturn().getResponse();
+
+    System.out.println("Last created node with name " + nodeName + " is --> " + res.getContentAsString());
   }
+
 
 
 }//End of class

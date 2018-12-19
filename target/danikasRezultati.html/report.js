@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 537155945,
+  "duration": 503637637,
   "status": "passed"
 });
 formatter.scenario({
@@ -37,7 +37,7 @@ formatter.match({
   "location": "CherniyBumer.ya_edu_na_mercedese()"
 });
 formatter.result({
-  "duration": 74438275,
+  "duration": 73408800,
   "status": "passed"
 });
 formatter.match({
@@ -50,14 +50,14 @@ formatter.match({
   "location": "CherniyBumer.ya_razgonyaus_bolshe_chem_mil_v_chas(int)"
 });
 formatter.result({
-  "duration": 2503737,
+  "duration": 2054250,
   "status": "passed"
 });
 formatter.match({
   "location": "CherniyBumer.moi_krilya_opuskautsa()"
 });
 formatter.result({
-  "duration": 84510,
+  "duration": 106577,
   "status": "passed"
 });
 formatter.uri("mockMvcFeatures/controller.feature");
@@ -69,7 +69,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3818772,
+  "duration": 3051708,
   "status": "passed"
 });
 formatter.scenario({
@@ -115,7 +115,7 @@ formatter.match({
   "location": "NodeControllerSearchTests.i_create_a_node_by_the_name_of(String)"
 });
 formatter.result({
-  "duration": 167593049,
+  "duration": 155563610,
   "status": "passed"
 });
 formatter.match({
@@ -128,14 +128,14 @@ formatter.match({
   "location": "NodeControllerSearchTests.i_already_have_a_node_by_the_name_of(String)"
 });
 formatter.result({
-  "duration": 2458778,
+  "duration": 2410714,
   "status": "passed"
 });
 formatter.match({
   "location": "NodeControllerSearchTests.i_should_receive_the_correct_data_object()"
 });
 formatter.result({
-  "duration": 1256719,
+  "duration": 1551714,
   "status": "passed"
 });
 formatter.match({
@@ -148,14 +148,14 @@ formatter.match({
   "location": "NodeControllerSearchTests.a_node_by_the_name_of_already_exists(String)"
 });
 formatter.result({
-  "duration": 152768,
+  "duration": 198663,
   "status": "passed"
 });
 formatter.match({
   "location": "NodeControllerSearchTests.i_should_see_a_list_containing()"
 });
 formatter.result({
-  "duration": 32473,
+  "duration": 35760,
   "status": "passed"
 });
 formatter.uri("mockMvcFeatures/mockMvc.feature");
@@ -167,7 +167,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3873270,
+  "duration": 3269120,
   "status": "passed"
 });
 formatter.scenario({
@@ -197,14 +197,14 @@ formatter.match({
   "location": "MockMvcTests.i_have_a_blank_array()"
 });
 formatter.result({
-  "duration": 1943366,
+  "duration": 2046054,
   "status": "passed"
 });
 formatter.match({
   "location": "MockMvcTests.i_initialize_a_random_element()"
 });
 formatter.result({
-  "duration": 91541,
+  "duration": 87890,
   "status": "passed"
 });
 formatter.match({
@@ -217,7 +217,7 @@ formatter.match({
   "location": "MockMvcTests.a_node_gets_created_when_I_hit_the_endpoint(String)"
 });
 formatter.result({
-  "duration": 2187842,
+  "duration": 1963656,
   "status": "passed"
 });
 formatter.uri("mockMvcFeatures/replicaMvc.feature");
@@ -229,7 +229,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3354485,
+  "duration": 3165446,
   "status": "passed"
 });
 formatter.scenario({
@@ -262,14 +262,14 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "node garage should not be empty",
+  "name": "the created node should exist in the station",
   "keyword": "Then "
 });
 formatter.match({
   "location": "ReplicaMvcTest.i_hit_the_correct_endpoint()"
 });
 formatter.result({
-  "duration": 1572864,
+  "duration": 1658107,
   "status": "passed"
 });
 formatter.match({
@@ -282,14 +282,14 @@ formatter.match({
   "location": "ReplicaMvcTest.i_provide_as_the_node_name(String)"
 });
 formatter.result({
-  "duration": 1830199,
+  "duration": 1865351,
   "status": "passed"
 });
 formatter.match({
   "location": "ReplicaMvcTest.i_make_sure_station_size_is_not_empty()"
 });
 formatter.result({
-  "duration": 2724316,
+  "duration": 2141001,
   "status": "passed"
 });
 formatter.match({
@@ -302,14 +302,14 @@ formatter.match({
   "location": "ReplicaMvcTest.im_able_to_find_in_the_garage(String)"
 });
 formatter.result({
-  "duration": 2421968,
+  "duration": 2149702,
   "status": "passed"
 });
 formatter.match({
-  "location": "ReplicaMvcTest.node_garage_should_not_be_empty()"
+  "location": "ReplicaMvcTest.the_created_node_should_exist_in_the_station()"
 });
 formatter.result({
-  "duration": 3094028,
+  "duration": 1648038,
   "status": "passed"
 });
 formatter.uri("outlineServiceWithWiremock/wiremock.feature");
@@ -321,7 +321,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 2723126,
+  "duration": 2923928,
   "status": "passed"
 });
 formatter.scenario({
@@ -361,7 +361,7 @@ formatter.match({
   "location": "WiremockCucumber.i_have_element_space_inside_of_my_array()"
 });
 formatter.result({
-  "duration": 308635,
+  "duration": 266580,
   "status": "passed"
 });
 formatter.match({
@@ -374,7 +374,7 @@ formatter.match({
   "location": "WiremockCucumber.a_motherboard_by_the_name_of_has_already_been_created(String)"
 });
 formatter.result({
-  "duration": 883575839,
+  "duration": 869167739,
   "status": "passed"
 });
 formatter.match({
@@ -387,21 +387,21 @@ formatter.match({
   "location": "WiremockCucumber.i_create_a_board_named(String)"
 });
 formatter.result({
-  "duration": 36229728,
+  "duration": 37260093,
   "status": "passed"
 });
 formatter.match({
   "location": "WiremockCucumber.i_have_a_free_node()"
 });
 formatter.result({
-  "duration": 81947,
+  "duration": 76957,
   "status": "passed"
 });
 formatter.match({
   "location": "WiremockCucumber.i_should_still_see_available_space()"
 });
 formatter.result({
-  "duration": 123366,
+  "duration": 167660,
   "status": "passed"
 });
 formatter.uri("unspecifiedError/unspecified/unspecified.feature");
@@ -413,7 +413,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3210490,
+  "duration": 2597281,
   "status": "passed"
 });
 formatter.scenario({
@@ -443,21 +443,21 @@ formatter.match({
   "location": "Unspecified.i_have_sapce_in_array()"
 });
 formatter.result({
-  "duration": 2054797,
+  "duration": 2082674,
   "status": "passed"
 });
 formatter.match({
   "location": "Unspecified.i_creation_from_terminal()"
 });
 formatter.result({
-  "duration": 74590,
+  "duration": 97032,
   "status": "passed"
 });
 formatter.match({
   "location": "Unspecified.i_have_one_less_space()"
 });
 formatter.result({
-  "duration": 89534,
+  "duration": 69005,
   "status": "passed"
 });
 });
