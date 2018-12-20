@@ -3,7 +3,7 @@ package com.testingWithGradle.testingWithGradle.boards;
 public class Motherboard extends ChipsetInitializer {
 
     private String nodeName;
-    private String nodeColor;
+    private String nodeColor = "Magenta";
     private String nodeType;
     private String nodeEngine;
     private Chipset chipset = new Chipset(createNewIndexNode(), createNewIndexNode(), createChipsetFamily(), createNodeFamily(), createTags());

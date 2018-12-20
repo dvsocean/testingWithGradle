@@ -5,10 +5,10 @@ import com.testingWithGradle.testingWithGradle.boards.Motherboard;
 public class Nodes extends NodeSelector {
 
   private int id = generateUniqueID();
-  private String name = randomNodeNameSelector();
-  private String color = randomNodeColorSelector();
+  private String name = "Jane";
+  private String color = "Green";
   private String type = randomNodeTypeSelector();
-  private String engine = randomNodeEngineSelector();
+  private String engine = "Rotax Powered John Deere";
 
   private boolean isValid;
 

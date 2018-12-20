@@ -24,7 +24,7 @@ public class BaseWireMock {
   protected ZportStation station = new ZportStation();
 
   protected Response confirmData(){
-    return RestAssured.given().when().get("/findExtraNodes");
+    return RestAssured.given().when().get("http://localhost:5550/findExtraNodes");
   }
 
   protected Response confirmDataWhenJavascriptEngineFound(){
