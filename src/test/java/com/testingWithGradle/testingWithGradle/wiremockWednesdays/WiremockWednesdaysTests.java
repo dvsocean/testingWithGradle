@@ -1,37 +1,44 @@
 package com.testingWithGradle.testingWithGradle.wiremockWednesdays;
 
-import com.testingWithGradle.testingWithGradle.wiremock.BaseWireMock;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.RestAssured;
 
-public class WiremockWednesdaysTests extends BaseWireMock {
+public class WiremockWednesdaysTests extends SetupServerBase {
 
-  private BackgroundActions gba = new BackgroundActions();
+  private BackgroundActions ba = new BackgroundActions();
 
-  @Given("^I initialize my mock server$")
-  public void i_initialize_my_mock_server() throws Throwable {
-    gba.initServer();
+  @Before
+  public void setupServer() throws Throwable {
+    RestAssured.baseURI = "http://localhost:5550";
+    ba.initServer("MCI");
   }
 
-  @When("^I confirm node has been created$")
+  @Given("^I confirm node has been created$")
   public void i_confirm_node_has_been_created() throws Throwable {
-    gba.validateCreatedNode();
+    ba.validateCreatedNode();
   }
 
-  @Then("^I should find object with the name \"([^\"]*)\"$")
-  public void i_should_find_object_with_the_name(String arg1) throws Throwable {
-    gba.confirmObjectHasCorrectName(arg1);
+  @When("^I verify that node has the name \"([^\"]*)\"$")
+  public void i_verify_that_node_has_the_name(String arg1) throws Throwable {
+    ba.confirmObjectHasCorrectName(arg1);
   }
 
-  @Then("^I should find object with the engine name \"([^\"]*)\"$")
+  @When("^I should find object with the engine name \"([^\"]*)\"$")
   public void i_should_find_object_with_the_engine_name(String arg1) throws Throwable {
-    gba.confirmObjectWithEngineName(arg1);
+    ba.confirmObjectWithEngineName(arg1);
   }
 
-  @Then("^I should find object with nodeColor \"([^\"]*)\"$")
+  @When("^I should find object with nodeColor \"([^\"]*)\"$")
   public void i_should_find_object_with_nodeColor(String arg1) throws Throwable {
-    gba.confirmObjectWithNodeColor(arg1);
+    ba.confirmObjectWithNodeColor(arg1);
+  }
+
+  @Then("^then confirm object array is not empty$")
+  public void then_confirm_object_array_is_not_empty() throws Throwable {
+    ba.validateCreatedNode();
   }
 
 }//End of class

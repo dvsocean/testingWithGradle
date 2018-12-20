@@ -17,12 +17,12 @@ public class SetupServerBase {
 
     //Access modifier needs to be public if class is being inherited
     @Rule
-    public WireMockRule wireMockRule = new WireMockRule(2525);
+    public WireMockRule wireMockRule = new WireMockRule(5550);
 
     protected ZportStation station = new ZportStation();
 
     protected Response confirmData(){
-        return RestAssured.given().when().get("http://localhost:2525/findExtraNodes");
+        return RestAssured.given().when().get("/findExtraNodes");
     }
 
     protected Response confirmDataWhenJavascriptEngineFound(){
