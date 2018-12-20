@@ -7,7 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 1145906848,
+  "duration": 438256262,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 4435035,
   "status": "passed"
 });
 formatter.scenario({
@@ -47,7 +51,7 @@ formatter.match({
   "location": "WiremockWednesdaysTests.i_confirm_node_has_been_created()"
 });
 formatter.result({
-  "duration": 510636186,
+  "duration": 1016207107,
   "status": "passed"
 });
 formatter.match({
@@ -60,7 +64,7 @@ formatter.match({
   "location": "WiremockWednesdaysTests.i_verify_that_node_has_the_name(String)"
 });
 formatter.result({
-  "duration": 36440114,
+  "duration": 37428514,
   "status": "passed"
 });
 formatter.match({
@@ -73,7 +77,7 @@ formatter.match({
   "location": "WiremockWednesdaysTests.i_should_find_object_with_the_engine_name(String)"
 });
 formatter.result({
-  "duration": 28022383,
+  "duration": 26682286,
   "status": "passed"
 });
 formatter.match({
@@ -86,14 +90,14 @@ formatter.match({
   "location": "WiremockWednesdaysTests.i_should_find_object_with_nodeColor(String)"
 });
 formatter.result({
-  "duration": 24841117,
+  "duration": 155073086,
   "status": "passed"
 });
 formatter.match({
   "location": "WiremockWednesdaysTests.then_confirm_object_array_is_not_empty()"
 });
 formatter.result({
-  "duration": 26348096,
+  "duration": 24967116,
   "status": "passed"
 });
 });

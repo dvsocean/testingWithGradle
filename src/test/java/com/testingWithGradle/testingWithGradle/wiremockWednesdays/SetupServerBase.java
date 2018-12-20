@@ -3,15 +3,13 @@ package com.testingWithGradle.testingWithGradle.wiremockWednesdays;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.testingWithGradle.testingWithGradle.applicationImpl.ZportStation;
 import com.testingWithGradle.testingWithGradle.boards.Motherboard;
 import com.testingWithGradle.testingWithGradle.nodes.Nodes;
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import org.hamcrest.Matcher;
 import org.junit.Rule;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 
 public class SetupServerBase {
 
@@ -19,29 +17,9 @@ public class SetupServerBase {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(5550);
 
-    protected ZportStation station = new ZportStation();
-
-    protected Response confirmData(){
-        return RestAssured.given().when().get("/findExtraNodes");
-    }
-
-    protected Response confirmDataWhenJavascriptEngineFound(){
-        return RestAssured.given().when().post("/lookForJs");
-    }
-
-    protected void setupMockServerForJSEngine(WireMockRule rule){
-        Nodes node1 = new Nodes(new Motherboard("Express2"));
-        node1.setEngine("Javascript");
-        Nodes node2 = new Nodes(new Motherboard("FlyIntel"));
-        station.addSingleNode(node1);
-
-        Nodes validatedNode = station.validateNodeIfJavascriptEngineFound(node2);
-
-        rule.stubFor(post(urlMatching("/lookForJs"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody(convertToJson(validatedNode))));
+    protected void confirmData(String endpoint, String target, Matcher matchers){
+        RestAssured.given().when().get(endpoint)
+                .then().body(target, (Matcher<?>) matchers);
     }
 
     protected void setupMockServer(String name){

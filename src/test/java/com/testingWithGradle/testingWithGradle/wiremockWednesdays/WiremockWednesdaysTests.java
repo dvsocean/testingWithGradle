@@ -28,12 +28,12 @@ public class WiremockWednesdaysTests extends SetupServerBase {
 
   @When("^I should find object with the engine name \"([^\"]*)\"$")
   public void i_should_find_object_with_the_engine_name(String arg1) throws Throwable {
-    ba.confirmObjectWithEngineName(arg1);
+    ba.verifyEngine(arg1);
   }
 
   @When("^I should find object with nodeColor \"([^\"]*)\"$")
   public void i_should_find_object_with_nodeColor(String arg1) throws Throwable {
-    ba.confirmObjectWithNodeColor(arg1);
+    ba.verifyNodeColor(arg1);
   }
 
   @Then("^then confirm object array is not empty$")
