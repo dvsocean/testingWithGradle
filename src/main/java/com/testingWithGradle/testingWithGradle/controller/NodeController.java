@@ -37,7 +37,7 @@ public class NodeController {
   or to be more explicit use..
   curl --header "Content-Type: application/json" --data '{"engine":"V55","color":"black and yellow"}' -X POST http://localhost:5050/updateNode/{name}
   * */
-  @PostMapping(value = "/updateNode/{name}")
+  @PostMapping(value = "/wiremockUpdateNode/{name}")
   public Nodes updateNode(@PathVariable("name") String name, @RequestBody Nodes node){
     Nodes updatedNode = zportStation.retrieveByMotherboardName(name);
     updatedNode.setEngine(node.getEngine());
