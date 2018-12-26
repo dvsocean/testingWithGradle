@@ -56,8 +56,10 @@ public class ZportStation {
     }
   }
 
-  public void addNodeForMvcTest(String name) {
-    nodesGarage.add(new Nodes(new Motherboard(name)));
+  public Nodes addNodeForMvcTest(String name) {
+    Nodes node = new Nodes(new Motherboard(name));
+    nodesGarage.add(node);
+    return node;
   }
 
   public Nodes validateNodeIfJavascriptEngineFound(Nodes toValidate){

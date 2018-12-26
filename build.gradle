@@ -1,27 +1,37 @@
+defaultTasks 'clean','test','aggregate'
+
 buildscript {
 	ext {
 		springBootVersion = '2.1.1.RELEASE'
+		serenityVersion = '2.0.28'
 	}
 	repositories {
-		mavenCentral()
+//		mavenCentral()
+		mavenLocal()
+		jcenter()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.27")
 	}
+}
+
+repositories {
+	jcenter()
+	mavenLocal()
+//	mavenCentral()
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'idea'
 
 group = 'com.testingWithGradle'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
 
 /*
 * Gradle and cucumber don't play well together
@@ -33,9 +43,12 @@ repositories {
 * excluded the second command cause it clutters
 * up the important test output.*/
 test {
+	ignoreFailures = false
 	testLogging.showStandardStreams = true
 	//systemProperties getSystemProperties()
 }
+
+test.finalizedBy(aggregate)
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
