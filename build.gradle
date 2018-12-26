@@ -6,9 +6,7 @@ buildscript {
 		serenityVersion = '2.0.28'
 	}
 	repositories {
-//		mavenCentral()
-		mavenLocal()
-		jcenter()
+		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -17,9 +15,7 @@ buildscript {
 }
 
 repositories {
-	jcenter()
-	mavenLocal()
-//	mavenCentral()
+	mavenCentral()
 }
 
 apply plugin: 'java'
