@@ -13,11 +13,6 @@ import java.util.List;
 
 public class InternalNodeSteps {
 
-  private Nodes nodeOne;
-  private Nodes nodeTwo;
-  private Nodes nodeThree;
-  private Nodes nodeFour;
-
   private Nodes lookUpClassLevelNode;
 
   private ZportStation zportStation = new ZportStation();
@@ -34,6 +29,12 @@ public class InternalNodeSteps {
     zportStation.addNodeForMvcTest(data.get(0).get(1));
     zportStation.addNodeForMvcTest(data.get(0).get(2));
     zportStation.addNodeForMvcTest(data.get(0).get(3));
+
+    for(List<String> d: data) {
+      for (int i = 0; i < d.size(); i++) {
+        System.out.println("Multi --> " + d.get(i));
+      }
+    }
   }
 
   @When("^I lookup a node with the name \"([^\"]*)\"$")
