@@ -9,7 +9,6 @@ public class Nodes extends NodeSelector {
   private String nodeColor = randomNodeColorSelector();
   private String nodeType = randomNodeTypeSelector();
   private String nodeEngine = randomNodeEngineSelector();
-
   private boolean isValid;
 
   public Motherboard motherboard;
@@ -20,7 +19,7 @@ public class Nodes extends NodeSelector {
   }
 
   public Nodes(){
-    //So mockito wont complain
+    //So mockito wont complain and update object via rest calls
   }
 
   public int getNodeId() {

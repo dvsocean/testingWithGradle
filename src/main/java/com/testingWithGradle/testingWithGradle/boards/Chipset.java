@@ -42,4 +42,7 @@ public class Chipset {
     return nodeFamily;
   }
 
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
 }//End of class

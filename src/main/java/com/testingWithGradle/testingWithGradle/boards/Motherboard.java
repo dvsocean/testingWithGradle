@@ -7,7 +7,7 @@ public class Motherboard extends ChipsetInitializer {
     private String motherboardType;
     private String motherboardEngine;
     private String motherboardBrand;
-    private int motherModel;
+    private String motherboardModel;
     private WireHarness wireHarness = new WireHarness();
     private Chipset chipset = new Chipset(createNewIndexNode(), createNewIndexNode(), createChipsetFamily(), createNodeFamily(), createTags());
 
@@ -67,14 +67,6 @@ public class Motherboard extends ChipsetInitializer {
         this.motherboardBrand = motherboardBrand;
     }
 
-    public int getMotherModel() {
-        return motherModel;
-    }
-
-    public void setMotherModel(int motherModel) {
-        this.motherModel = motherModel;
-    }
-
     public WireHarness getWireHarness() {
         return wireHarness;
     }
@@ -83,4 +75,11 @@ public class Motherboard extends ChipsetInitializer {
         this.wireHarness = wireHarness;
     }
 
+    public String getMotherboardModel() {
+        return motherboardModel;
+    }
+
+    public void setMotherboardModel(String motherboardModel) {
+        this.motherboardModel = motherboardModel;
+    }
 }//End of class
