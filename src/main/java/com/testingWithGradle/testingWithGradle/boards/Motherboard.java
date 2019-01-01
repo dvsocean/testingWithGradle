@@ -16,7 +16,7 @@ public class Motherboard extends ChipsetInitializer {
     }
 
     public Motherboard() {
-        //
+        //Empty constructor is needed so I can send updated objects via rest
     }
 
     public Chipset getChipset() {

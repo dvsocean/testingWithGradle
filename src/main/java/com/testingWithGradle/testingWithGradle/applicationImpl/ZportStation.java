@@ -86,4 +86,12 @@ public class ZportStation {
     return null;
   }
 
+  public void ifNodeIdIsAboveFiftyThenReassignValues(Nodes nd, Predicate<Nodes> prd) {
+    if(nd.getNodeId() > 50){
+      if(prd.test(nd)){
+        nd.setNodeType("PASSED CONDITIONALS, VALUE RE-ASSIGNED --> POSITIVE!");
+      }
+    }
+  }
+
 }//End of class

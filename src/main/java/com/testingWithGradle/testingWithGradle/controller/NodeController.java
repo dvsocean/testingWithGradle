@@ -68,4 +68,11 @@ public class NodeController {
     return n;
   }
 
+  @PostMapping(value = "/firstCompareThenUpdate/{name}")
+  public Nodes martiansVsTheDamnGoblins(@PathVariable("name") String name, @RequestBody Nodes node){
+    Nodes n = zportStation.retrieveByMotherboardName(name);
+    zportStation.ifNodeIdIsAboveFiftyThenReassignValues(n, nodes -> node.getNodeId() > 50);
+    return n;
+  }
+
 }//End of class
