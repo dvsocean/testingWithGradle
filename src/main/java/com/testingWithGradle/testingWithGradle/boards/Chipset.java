@@ -30,6 +30,10 @@ public class Chipset {
     return chipsetFamily;
   }
 
+  public void setChipsetFamily(String[] chipsetFamily) {
+    this.chipsetFamily = chipsetFamily;
+  }
+
   public List<String> getTags() {
     return tags;
   }

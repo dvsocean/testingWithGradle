@@ -61,4 +61,11 @@ public class NodeController {
     return zportStation.fetchFilteredNode(node.getMotherboard().getMotherboardName(), nodes -> nodes.getMotherboard().getMotherboardName().equals(node.getMotherboard().getMotherboardName()));
   }
 
+  @PostMapping(value = "/updateChipset/{name}")
+  public Nodes updateChipset(@PathVariable("name") String name, @RequestBody Nodes node){
+    Nodes n = zportStation.retrieveByMotherboardName(name);
+    n.getMotherboard().getChipset().setChipsetFamily(node.getMotherboard().getChipset().getChipsetFamily());
+    return n;
+  }
+
 }//End of class
