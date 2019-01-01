@@ -19,7 +19,7 @@ public class ZportStation {
 
   public Nodes findNodeById(int id) {
     for(Nodes node: nodesGarage) {
-      if(node.getId() == id){
+      if(node.getNodeId() == id){
         return node;
       }
     }
@@ -32,7 +32,7 @@ public class ZportStation {
 
   public Nodes retrieveByMotherboardName(String name) {
     for(Nodes node : nodesGarage) {
-      if(node.getMotherboard().getNodeName().equalsIgnoreCase(name)){
+      if(node.getMotherboard().getMotherboardName().equalsIgnoreCase(name)){
         return node;
       }
     }
@@ -41,7 +41,7 @@ public class ZportStation {
 
   public boolean returnNodeColor() {
     for(Nodes node : nodesGarage) {
-      if(node.getColor().length() > 0){
+      if(node.getNodeColor().length() > 0){
         return true;
       }
     }
@@ -55,14 +55,16 @@ public class ZportStation {
     }
   }
 
-  public void addNodeForMvcTest(String name) {
-    nodesGarage.add(new Nodes(new Motherboard(name)));
+  public Nodes addNodeForMvcTest(String name) {
+    Nodes node = new Nodes(new Motherboard(name));
+    nodesGarage.add(node);
+    return node;
   }
 
   public Nodes validateNodeIfJavascriptEngineFound(Nodes toValidate){
     if(nodesGarage.size() > 0){
       for(Nodes node : nodesGarage) {
-        if(node.getEngine().equalsIgnoreCase(toValidate.getEngine())){
+        if(node.getNodeEngine().equalsIgnoreCase(toValidate.getNodeEngine())){
           toValidate.setValid(true);
         }
       }

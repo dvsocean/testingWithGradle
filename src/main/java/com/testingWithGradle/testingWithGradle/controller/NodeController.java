@@ -1,6 +1,7 @@
 package com.testingWithGradle.testingWithGradle.controller;
 
 import com.testingWithGradle.testingWithGradle.applicationImpl.ZportStation;
+import com.testingWithGradle.testingWithGradle.boards.WireHarness;
 import com.testingWithGradle.testingWithGradle.nodes.Nodes;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,20 @@ public class NodeController {
   * */
   @PostMapping(value = "/updateNode/{name}")
   public Nodes updateNode(@PathVariable("name") String name, @RequestBody Nodes node){
-    Nodes updatedNode = zportStation.retrieveByMotherboardName(name);
-    updatedNode.setEngine(node.getEngine());
-    updatedNode.setColor(node.getColor());
-    return updatedNode;
+    Nodes toUpdate = zportStation.retrieveByMotherboardName(name);
+    toUpdate.setNodeEngine(node.getNodeEngine());
+    toUpdate.setNodeColor(node.getNodeColor());
+    toUpdate.getMotherboard().setMotherboardColor(node.motherboard.getMotherboardColor());
+    toUpdate.getMotherboard().setMotherboardType(node.getMotherboard().getMotherboardType());
+    toUpdate.getMotherboard().getWireHarness().setStrategyPyramid(node.getMotherboard().getWireHarness().getStrategyPyramid());
+    return toUpdate;
+  }
+
+  @PostMapping(value = "/installHarness/{nodeName}")
+  public Nodes installNewHarness(@PathVariable("nodeName") String nodeName, @RequestBody Nodes node){
+    Nodes n = zportStation.retrieveByMotherboardName(nodeName);
+    n.getMotherboard().setWireHarness(new WireHarness(node.getMotherboard().getWireHarness().getColorCount(), node.getMotherboard().getWireHarness().getStrategyPyramid()));
+    return n;
   }
 
 }//End of class

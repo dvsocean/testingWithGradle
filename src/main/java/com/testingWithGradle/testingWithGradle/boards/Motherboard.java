@@ -2,14 +2,21 @@ package com.testingWithGradle.testingWithGradle.boards;
 
 public class Motherboard extends ChipsetInitializer {
 
-    private String nodeName;
-    private String nodeColor;
-    private String nodeType;
-    private String nodeEngine;
+    private String motherboardName;
+    private String motherboardColor;
+    private String motherboardType;
+    private String motherboardEngine;
+    private String motherboardBrand;
+    private int motherModel;
+    private WireHarness wireHarness = new WireHarness();
     private Chipset chipset = new Chipset(createNewIndexNode(), createNewIndexNode(), createChipsetFamily(), createNodeFamily(), createTags());
 
     public Motherboard(String name) {
-        this.nodeName = name;
+        this.motherboardName = name;
+    }
+
+    public Motherboard() {
+        //
     }
 
     public Chipset getChipset() {
@@ -20,31 +27,60 @@ public class Motherboard extends ChipsetInitializer {
         this.chipset = chipset;
     }
 
-    public String getNodeName() {
-        return nodeName;
+    public String getMotherboardName() {
+        return motherboardName;
     }
 
-    public String getNodeColor() {
-        return nodeColor;
+    public void setMotherboardName(String motherboardName) {
+        this.motherboardName = motherboardName;
     }
 
-    public void setNodeColor(String nodeColor) {
-        this.nodeColor = nodeColor;
+    public String getMotherboardColor() {
+        return motherboardColor;
     }
 
-    public String getNodeType() {
-        return nodeType;
+    public void setMotherboardColor(String motherboardColor) {
+        this.motherboardColor = motherboardColor;
     }
 
-    public void setNodeType(String nodeType) {
-        this.nodeType = nodeType;
+    public String getMotherboardType() {
+        return motherboardType;
     }
 
-    public String getNodeEngine() {
-        return nodeEngine;
+    public void setMotherboardType(String motherboardType) {
+        this.motherboardType = motherboardType;
     }
 
-    public void setNodeEngine(String nodeEngine) {
-        this.nodeEngine = nodeEngine;
+    public String getMotherboardEngine() {
+        return motherboardEngine;
     }
-}
+
+    public void setMotherboardEngine(String motherboardEngine) {
+        this.motherboardEngine = motherboardEngine;
+    }
+
+    public String getMotherboardBrand() {
+        return motherboardBrand;
+    }
+
+    public void setMotherboardBrand(String motherboardBrand) {
+        this.motherboardBrand = motherboardBrand;
+    }
+
+    public int getMotherModel() {
+        return motherModel;
+    }
+
+    public void setMotherModel(int motherModel) {
+        this.motherModel = motherModel;
+    }
+
+    public WireHarness getWireHarness() {
+        return wireHarness;
+    }
+
+    public void setWireHarness(WireHarness wireHarness) {
+        this.wireHarness = wireHarness;
+    }
+
+}//End of class

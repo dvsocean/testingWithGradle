@@ -4,11 +4,11 @@ import com.testingWithGradle.testingWithGradle.boards.Motherboard;
 
 public class Nodes extends NodeSelector {
 
-  private int id = generateUniqueID();
-  private String name = randomNodeNameSelector();
-  private String color = randomNodeColorSelector();
-  private String type = randomNodeTypeSelector();
-  private String engine = randomNodeEngineSelector();
+  private int nodeId = generateUniqueID();
+  private String nodeName = randomNodeNameSelector();
+  private String nodeColor = randomNodeColorSelector();
+  private String nodeType = randomNodeTypeSelector();
+  private String nodeEngine = randomNodeEngineSelector();
 
   private boolean isValid;
 
@@ -23,6 +23,46 @@ public class Nodes extends NodeSelector {
     //So mockito wont complain
   }
 
+  public int getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(int nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeName() {
+    return nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
+  public String getNodeColor() {
+    return nodeColor;
+  }
+
+  public void setNodeColor(String nodeColor) {
+    this.nodeColor = nodeColor;
+  }
+
+  public String getNodeType() {
+    return nodeType;
+  }
+
+  public void setNodeType(String nodeType) {
+    this.nodeType = nodeType;
+  }
+
+  public String getNodeEngine() {
+    return nodeEngine;
+  }
+
+  public void setNodeEngine(String nodeEngine) {
+    this.nodeEngine = nodeEngine;
+  }
+
   public boolean isValid() {
     return isValid;
   }
@@ -31,43 +71,11 @@ public class Nodes extends NodeSelector {
     isValid = valid;
   }
 
-  public int getId() {
-    return id;
-  }
-
   public Motherboard getMotherboard() {
     return motherboard;
   }
 
   public void setMotherboard(Motherboard motherboard) {
     this.motherboard = motherboard;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public String getColor() {
-    return color;
-  }
-
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getEngine() {
-    return engine;
-  }
-
-  public void setEngine(String engine) {
-    this.engine = engine;
   }
 }
