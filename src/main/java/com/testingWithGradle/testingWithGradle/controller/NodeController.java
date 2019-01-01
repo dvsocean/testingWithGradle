@@ -56,4 +56,9 @@ public class NodeController {
     return n;
   }
 
+  @PostMapping(value = "/filteredNode")
+  public Nodes fetchFilteredNode(@RequestBody Nodes node){
+    return zportStation.fetchFilteredNode(node.getMotherboard().getMotherboardName(), nodes -> nodes.getMotherboard().getMotherboardName().equals(node.getMotherboard().getMotherboardName()));
+  }
+
 }//End of class

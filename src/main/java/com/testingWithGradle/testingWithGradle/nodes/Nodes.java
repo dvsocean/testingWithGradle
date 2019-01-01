@@ -78,4 +78,9 @@ public class Nodes extends NodeSelector {
   public void setMotherboard(Motherboard motherboard) {
     this.motherboard = motherboard;
   }
-}
+
+  public void errorMessage(String name){
+    getMotherboard().setMotherboardBrand(name);
+  }
+
+}//End of class

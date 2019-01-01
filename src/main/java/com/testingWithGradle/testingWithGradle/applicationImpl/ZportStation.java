@@ -6,6 +6,7 @@ import com.testingWithGradle.testingWithGradle.boards.Motherboard;
 import com.testingWithGradle.testingWithGradle.nodes.Nodes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -70,6 +71,19 @@ public class ZportStation {
       }
     }
     return toValidate;
+  }
+
+  public Nodes fetchFilteredNode(String motherboardName, Predicate<Nodes> prd) {
+    for(Nodes node : nodesGarage) {
+      if(node.getMotherboard().getMotherboardName().equals(motherboardName)){
+        if(prd.test(node)){
+          return node;
+        } else {
+          node.errorMessage("NOT FOUND");
+        }
+      }
+    }
+    return null;
   }
 
 }//End of class
