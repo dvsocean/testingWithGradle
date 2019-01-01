@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "1150337c-3e4a-4f6c-81bb-92d7e4bb35e2",
+		"name": "TestingWithGradle",
+		"description": "This is a collection made specifically for localhost testing where we are hitting custom created endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{env}}/showAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{env}}/showAll",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"showAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/createNode/{{name}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{env}}/createNode/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"createNode",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/findNode/{{name}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{env}}/findNode/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"findNode",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/updateNode/{{name}}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nodeEngine\":\"AirType RotaxPowered\",\n\"nodeColor\":\"Black and Yellow\",\n\t\"motherboard\":{\n\t\t\"motherboardColor\": \"Blue\",\n\t\t\"motherboardType\":\"Lashout\",\n\t\t\"wireHarness\": {\n\t\t\t\"strategyPyramid\":\"stocked\"\n\t\t}\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "{{env}}/updateNode/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"updateNode",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/installHarness/{{nodeName}}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nodeEngine\":\"\",\n\"nodeColor\":\"\",\n\t\"motherboard\":{\n\t\t\"motherboardColor\": \"\",\n\t\t\"motherboardType\":\"\",\n\t\t\"wireHarness\": {\n\t\t\t\"strategyPyramid\":\"Multi fiber light harness\",\n\t\t\t\"colorCount\":7\n\t\t}\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "{{env}}/installHarness/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"installHarness",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/filteredNode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8700922-29cf-429b-9c3a-35a6b9daa46d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.environment.set(\"motherboardEngine\", jsonData.motherboard.motherboardEngine);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nodeEngine\":\"\",\n\"nodeColor\":\"\",\n\t\"motherboard\":{\n\t\t\"motherboardColor\": \"\",\n\t\t\"motherboardType\":\"\",\n\t\t\"motherboardEngine\":\"Aikey\",\n        \"motherboardBrand\":\"\",\n\t\t\"motherboardName\":\"Aikey\",\n\t\t\"wireHarness\": {\n\t\t\t\"strategyPyramid\":\"\",\n\t\t\t\"colorCount\":0\n\t\t}\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "{{env}}/filteredNode",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"filteredNode"
+					]
+				},
+				"description": "If motherboardNames match then node is returned"
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/updateChipset/{{name}}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nodeEngine\":\"\",\n\"nodeColor\":\"\",\n\t\"motherboard\":{\n\t\t\"motherboardColor\": \"\",\n\t\t\"motherboardType\":\"\",\n\t\t\"wireHarness\": {\n\t\t\t\"strategyPyramid\":\"\",\n\t\t\t\"colorCount\":23\n\t\t},\n\t\t\"chipset\": {\n\t\t\t\"chipsetFamily\": [9,8,7,6,5,4,3,2,1,0,1,0,0]\n\t\t}\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "{{env}}/updateChipset/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"updateChipset",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/firstCompareThenUpdate/{{name}}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeId\":76\n}"
+				},
+				"url": {
+					"raw": "{{env}}/firstCompareThenUpdate/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"firstCompareThenUpdate",
+						"{{name}}"
+					]
+				},
+				"description": "if nodeId is grt than 50 values will be reassigned "
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/updateTags/{{name}}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodeId\": 457,\n    \"nodeName\": \"TeslaBoards\",\n    \"nodeColor\": \"White\",\n    \"nodeType\": \"LightWeight\",\n    \"nodeEngine\": \"Javascript\",\n    \"motherboard\": {\n        \"motherboardName\": \"Henry\",\n        \"motherboardColor\": null,\n        \"motherboardType\": null,\n        \"motherboardEngine\": null,\n        \"motherboardBrand\": null,\n        \"motherboardModel\": null,\n        \"wireHarness\": {\n            \"packetCount\": 98,\n            \"colorCount\": 0,\n            \"strategyPyramid\": null\n        },\n        \"chipset\": {\n            \"modelNumber\": 21,\n            \"nodeCount\": 4,\n            \"chipsetFamily\": [\n                \"Chipset Family --> XXS Scripting protection\",\n                \"Chipset Family --> Thread protection\",\n                \"Chipset Family --> SeriesFifteen\",\n                \"Chipset Family --> SeriesFifteen\",\n                null\n            ],\n            \"tags\": [\n                \"Fallout\",\n                \"Fallout\",\n                \"Fallout\",\n                \"Fallout\",\n                \"Fallout\",\n                \"Fallout\",\n                \"Fallout\"\n            ],\n            \"nodeFamily\": [\n                12,\n                12,\n                21,\n                346,\n                21,\n                567,\n                15,\n                0\n            ]\n        }\n    },\n    \"valid\": false\n}"
+				},
+				"url": {
+					"raw": "{{env}}/updateTags/{{name}}",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"updateTags",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{env}}/validate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodeId\": 421,\n    \"nodeName\": \"ASUS\",\n    \"nodeColor\": \"Green\",\n    \"nodeType\": \"Agile\",\n    \"nodeEngine\": \"Javascript\",\n    \"motherboard\": {\n        \"motherboardName\": \"Kerpal\",\n        \"motherboardColor\": null,\n        \"motherboardType\": null,\n        \"motherboardEngine\": null,\n        \"motherboardBrand\": null,\n        \"motherboardModel\": null,\n        \"wireHarness\": {\n            \"packetCount\": 34,\n            \"colorCount\": 0,\n            \"strategyPyramid\": null\n        },\n        \"chipset\": {\n            \"modelNumber\": 34,\n            \"nodeCount\": 44,\n            \"chipsetFamily\": [\n                \"Chipset Family --> NodeCounter\",\n                \"Chipset Family --> SeriesFifteen\",\n                \"Chipset Family --> MultiLine Support\",\n                \"Chipset Family --> SeriesFifteen\",\n                null\n            ],\n            \"tags\": [\n                \"React V3\",\n                \"InterException\",\n                \"Cross domain protect\",\n                \"Fallout\",\n                \"GoogleEngine\",\n                \"Fallout\",\n                \"GoogleEngine\"\n            ],\n            \"nodeFamily\": [\n                34,\n                232,\n                87,\n                4,\n                567,\n                44,\n                21,\n                0\n            ]\n        }\n    },\n    \"valid\": false\n}"
+				},
+				"url": {
+					"raw": "{{env}}/validate",
+					"host": [
+						"{{env}}"
+					],
+					"path": [
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
